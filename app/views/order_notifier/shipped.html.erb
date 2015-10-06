@@ -1,0 +1,9 @@
+<h3> pragmatic order shipped </h3>
+<p>
+  order has been shipped.
+</p>
+
+<table>
+  <tr><th colspan="2">Qty</th><th>Description</th></tr>
+  <%= render @order.line_items -%>
+</table>

@@ -3,6 +3,7 @@
 <% end %>
 
 <h1>Your Pragmatic Catalog</h1>
+<h2> You have viewed this page <%=@count %> </h2>
 
 <% cache ['store', Product.latest] do %>
   <% @products.each do |product| %>

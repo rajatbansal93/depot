@@ -13,16 +13,20 @@
     </div>
     <div id="columns">
       <div id="side">
-        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-          <%= render @cart %>
+        <% if @cart %>
+          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+            <%= render @cart %>
+          <% end %>
         <% end %>
-
         <ul>
           <li><a href="http://www....">Home</a></li>
           <li><a href="http://www..../faq">Questions</a></li>
           <li><a href="http://www..../news">News</a></li>
           <li><a href="http://www..../contact">Contact</a></li>
+          <li><%= Time.now %></li>
+          <li><%= 'hi' %></li>
         </ul>
+        <p><%= Time.now %></p>
       </div>
       <div id="main">
         <%= yield %>

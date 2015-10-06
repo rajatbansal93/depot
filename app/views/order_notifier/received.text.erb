@@ -1,0 +1,7 @@
+Dear <%= @order.name %>
+
+Thank you for your recent order from the store.
+
+Your order contain following items
+
+<%= render partial: 'line_items/line_items', collection: @order.line_items %>
