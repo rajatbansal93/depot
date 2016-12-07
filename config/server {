@@ -1,0 +1,34 @@
+server {
+  listen 80;
+  root /var/www/apps/depot/current/public;
+
+  passenger_enabled on;
+  passenger_app_env staging;
+
+  location ~ ^/(cms-assets)/  {
+    root /var/www/apps/chipotle-cms/current/public;
+    gzip_static on; # to serve pre-gzipped version
+    expires max;
+    add_header Cache-Control public;
+  }
+
+  location /api {
+    passenger_enabled on;
+  }
+
+  location / {
+    passenger_enabled on;
+    if ($http_x_forwarded_proto != 'https') {
+      rewrite ^ https://$host$request_uri? permanent;
+    }
+  }
+}
+
+
+server {
+  listen 80 default_server;
+  server_name www.mydomain.com;
+  passenger_enabled on;
+  passenger_app_env development;
+  root /var/www/apps/depot/current;
+}

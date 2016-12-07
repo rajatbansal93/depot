@@ -38,5 +38,38 @@ namespace :passenger do
     end
   end
 end
+namespace :database do
+  desc 'create database'
+  task :create do
+    on roles(:db), in: :parallel do
+      within current_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, :exec, :rake, 'db:create'
+        end
+      end
+    end
+  end
 
+  desc 'migration'
+  task :migrate do
+    on roles(:db), in: :parallel do
+      within current_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, :exec, :rake, 'db:migrate'
+        end
+      end
+    end
+  end
+
+  desc 'seed'
+  task :seed do
+    on roles(:db), in: :parallel do
+      within current_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, :exec, :rake, 'db:seed'
+        end
+      end
+    end
+  end
+end
 after 'deploy', 'passenger:restart'
