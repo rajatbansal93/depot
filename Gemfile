@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby         '2.3.3'
 gem 'pg'
 gem "capistrano", "~> 3.6"
 gem 'therubyracer', '~> 0.12.2'
