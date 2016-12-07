@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
   after_destroy :ensure_an_admin_remains
   validates :email, uniqueness: true
-  validates :email, format: { with: /.+@.+\..{2,3}/ }
+  # validates :email, format: { with: /.+@.+\..{2,3}/ }
 
   after_destroy do |user|
     user.email != 'admin@depot.com'

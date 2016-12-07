@@ -3,12 +3,12 @@ class Product < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_line_item
   validates :title, :description, :image_url, presence: true
-  validates :permalink, format: { with: /\A[^ ][a-zA-Z0-9\-]+\z/ }
-  validates :permalink, format: { with: /[^ ]/ }
-  validates_length_of :description, in: 5..10, tokenizer: ->(str) { str.scan(/\w+/) }
+  # validates :permalink, format: { with: /\A[^ ][a-zA-Z0-9\-]+\z/ }
+  # validates :permalink, format: { with: /[^ ]/ }
+  # validates_length_of :description, in: 5..10, tokenizer: ->(str) { str.scan(/\w+/) }
   validates :price, numericality: {greater_than_or_equal_to: 0.01}, if: :is_price_empty?
-  validates :title, :permalink, uniqueness: true
-  validates_length_of :permalink, minimum: 3, tokenizer: ->(str) { str.split('-') }
+  # validates :title, :permalink, uniqueness: true
+  # validates_length_of :permalink, minimum: 3, tokenizer: ->(str) { str.split('-') }
   validates :image_url, allow_blank: true, format: {
     with:
     %r{\.(gif|jpg|png)\Z}i,
