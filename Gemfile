@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'pg'
-
+gem "capistrano", "~> 3.6"
 gem 'mysql2', '~> 0.3.20'
 gem 'yaml_db'
 # Use SCSS for stylesheets
