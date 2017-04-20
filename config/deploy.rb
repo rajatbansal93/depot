@@ -28,6 +28,12 @@ set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 set :delayed_job_roles, [:worker]
 
+set :migration_role, :db
+set :migration_servers, -> { primary(fetch(:migration_role)) }
+set :conditionally_migrate, true
+set :assets_roles, [:web, :app]
+set :keep_assets, 2
+
 
 namespace :passenger do
   task :restart do

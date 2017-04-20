@@ -4,11 +4,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 ruby         '2.1.5'
 gem 'pg'
-gem "capistrano", "~> 3.6"
-gem 'therubyracer', '~> 0.12.2'
-gem 'capistrano-bundler', '~> 1.2'
-gem 'capistrano-rails', '~> 1.2'
-gem 'capistrano-passenger'
 # gem 'mysql2', '~> 0.3.20'
 gem 'yaml_db'
 # Use SCSS for stylesheets
@@ -41,6 +36,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem "capistrano", "~> 3.6"
+  gem 'therubyracer', '~> 0.12.2'
+  gem 'capistrano-bundler', '~> 1.2'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-passenger'
 end
 
 group :development do
