@@ -7,7 +7,7 @@ set :scm, 'git'
 set :deploy_via, :remote_cache
 set :rails_env, 'production'
 
-server '35.164.73.110',  user: 'rb', roles: %w(app web db worker)
+server '35.167.97.59',  user: 'rb', roles: %w(app web db worker)
 
 
 set :deploy_to, '/var/www/apps/depot'
