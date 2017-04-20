@@ -6,6 +6,9 @@ ruby         '2.1.5'
 gem 'pg'
 gem "capistrano", "~> 3.6"
 gem 'therubyracer', '~> 0.12.2'
+gem 'capistrano-bundler', '~> 1.2'
+gem 'capistrano-rails', '~> 1.2'
+gem 'capistrano-passenger'
 # gem 'mysql2', '~> 0.3.20'
 gem 'yaml_db'
 # Use SCSS for stylesheets
